@@ -6,8 +6,6 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 axios.get('/tags').then(response => {
-  console.log('tags:', response.data)
+  ReactDOM.render(<App tags={response.data} />, document.getElementById('root'));
+  registerServiceWorker();
 })
-
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();

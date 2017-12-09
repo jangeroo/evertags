@@ -14,6 +14,13 @@ class App extends Component {
         <p className="App-intro">
           The missing "File explorer" for Evernote tags.
         </p>
+        <div>
+          {this.props.tags.map((tag, index) => (
+            <div key={index}>
+              {tag.guid}: {tag.name}
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
