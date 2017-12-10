@@ -17,7 +17,7 @@ class App extends Component {
         <div>
           {this.props.tags.map((tag, index) => (
             <div key={index}>
-              {tag.guid}: {tag.name}
+              {tag.name} ({tag.guid}) {tag.parentGuid ? `-> nested under ${tag.parentGuid}` : null}
             </div>
           ))}
         </div>

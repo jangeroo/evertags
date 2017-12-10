@@ -1,0 +1,13 @@
+{
+  "consumerKey": "michaeljang86",
+  "consumerSecret": "6780e689dedf9a67",
+  "evernoteHostName": "https://sandbox.evernote.com",
+  "oauth_callback": "http://localhost:3000",
+  "oauth_consumer_key": "6780e689dedf9a67",
+  "oauth_nonce": "3166905818410889691",
+  "oauth_signature": "xCYjTiyz7GZiElg1uQaHGQ6I",
+  "oauth_signature_method": "HMAC-SHA1",
+  "oauth_timestamp": "1429565574",
+  "oauth_version": "1.0",
+  "token": "S=s1:U=91d19:E=167821b5a16:C=1602a6a2aa8:P=1cd:A=en-devtoken:V=2:H=2e45e5c070baf4f3980f7c351f64de1e"
+}
