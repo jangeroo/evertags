@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
-import logo from './evernote.svg';
 import './App.css';
+import Header from './Header'
 
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Evertags</h1>
-        </header>
-        <p className="App-intro">
-          The missing "File explorer" for Evernote tags.
-        </p>
-        <div>
-          {this.props.tags.map((tag, index) => (
-            <div key={index}>
-              {tag.name} ({tag.guid}) {tag.parentGuid ? `-> nested under ${tag.parentGuid}` : null}
-            </div>
-          ))}
-        </div>
+        <Header />
+        <TagList tags={this.props.tags} />
       </div>
     );
   }
 }
+
+var TagList = ({ tags }) => (
+  <div>
+    {tags.map((tag, index) => (
+      <div key={index}>
+        {tag.name} ({tag.guid}) {tag.parentGuid ? `-> nested under ${tag.parentGuid}` : null}
+      </div>
+    ))}
+  </div>
+)
 
 export default App;
