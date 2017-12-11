@@ -1,27 +1,28 @@
+import axios from 'axios'
 import React, { Component } from 'react';
 import './App.css';
 import Header from './Header'
 
 
 class App extends Component {
+  state = { tags: null }
+
+  componentWillMount() {
+    axios.get('/tags').then(response => {
+      this.setState({ tags: response.data })
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
-        <TagList tags={this.props.tags} />
+        {this.state.tags ?
+          this.state.tags.map((tag, i) => (<div key={i}>{tag.name} ({tag.guid})</div>)) :
+          'Loading tags...'}
       </div>
     );
   }
 }
-
-var TagList = ({ tags }) => (
-  <div>
-    {tags.map((tag, index) => (
-      <div key={index}>
-        {tag.name} ({tag.guid}) {tag.parentGuid ? `-> nested under ${tag.parentGuid}` : null}
-      </div>
-    ))}
-  </div>
-)
 
 export default App;
