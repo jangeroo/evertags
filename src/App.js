@@ -1,15 +1,15 @@
-import axios from 'axios'
 import React, { Component } from 'react';
 import './App.css';
 import Header from './Header'
+import backend from './backend'
 
 
 class App extends Component {
-  state = { tags: null }
+  state = { tagTrees: null }
 
-  componentWillMount() {
-    axios.get('/tags').then(response => {
-      this.setState({ tags: response.data })
+  async componentWillMount() {
+    backend.getAllTags().then(tags => {
+      this.setState({ tagTrees: backend.allTagTrees(tags) })
     })
   }
 
@@ -17,9 +17,12 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        {this.state.tags ?
-          this.state.tags.map((tag, i) => (<div key={i}>{tag.name} ({tag.guid})</div>)) :
-          'Loading tags...'}
+        Trees start with these root tags:
+
+        {this.state.tagTrees
+          ? this.state.tagTrees.map((tag, i) => (<div key={i}>{tag.name} ({tag.guid})</div>))
+          : 'Loading tags...'}
+        {this.state.tagTrees ? console.log(this.state.tagTrees) : null}
       </div>
     );
   }

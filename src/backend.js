@@ -7,18 +7,17 @@ class EvertagsAPI {
   }
 
   generateTagTree = (tags, guid) => {
-    // set parent as root
-    let tree = tags.find(tag => tag.guid == guid)
-    // console.log(tree)
-    // find all child tags of parent
+    let tree = tags.find(tag => tag.guid === guid)
     let children = tags.filter(tag => {
-      return tag.parentGuid == guid
+      return tag.parentGuid === guid
     })
-    // console.log(children)
-    // for each child tag,
     tree['children'] = children.map(child => this.generateTagTree(tags, child.guid))
-    //   append to parent's children a tree with child as parent
     return tree
+  }
+
+  allTagTrees = tags => {
+    let rootTags = tags.filter(tag => tag.parentGuid == null)
+    return rootTags.map(root => this.generateTagTree(tags, root.guid))
   }
 }
 
