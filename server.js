@@ -8,6 +8,12 @@ var client = new Evernote.Client({ token: config.token });
 var userStore = client.getUserStore();
 
 
+const cors = (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  next()
+}
+app.use(cors)
+
 app.get('/', (req, res) => {
   res.send('Evertags API server!')
 })
