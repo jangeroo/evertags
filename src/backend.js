@@ -2,7 +2,7 @@ import axios from 'axios'
 
 class EvertagsAPI {
   getAllTags = () => {
-    return axios.get('http://localhost:4000/tags')
+    return axios.get('/tags')
       .then(response => response.data)
   }
 
