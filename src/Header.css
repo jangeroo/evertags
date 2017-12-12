@@ -5,11 +5,12 @@
 .Header-logo {
   animation: Header-logo-spin infinite 20s linear;
   height: 80px;
+  float: left;
 }
 
 .Header-header {
   background-color: #5eba6a;
-  height: 150px;
+  height: 80px;
   padding: 20px;
   color: white;
 }
