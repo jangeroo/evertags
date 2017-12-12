@@ -2,7 +2,9 @@ import axios from 'axios'
 
 class EvertagsAPI {
   getAllTags = () => {
-    return axios.get('/tags')
+    // The domain is hardcoded here to make the Jest tests run
+    // This should be removed to just get from the endpoint itself
+    return axios.get('http://localhost:4000/tags')
       .then(response => response.data)
   }
 

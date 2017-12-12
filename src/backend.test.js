@@ -27,7 +27,7 @@ describe('allTagTrees', async () => {
   it('produces a list of tree roots', async () => {
     const tags = await backend.getAllTags()
     const trees = backend.allTagTrees(tags)
-    let expectedRoots = ['home', 'projects', 'work'].sort()
+    let expectedRoots = ['home', 'parent', 'projects', 'work'].sort()
     let actualRoots = trees.map(tag => tag.name).sort()
     expect(actualRoots).toEqual(expectedRoots)
     expect(trees.every(root => root.parentGuid === null)).toBe(true)
